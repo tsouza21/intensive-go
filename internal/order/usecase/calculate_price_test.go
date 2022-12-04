@@ -13,7 +13,7 @@ import (
 
 type CalculatePriceUseCaseTestSuite struct {
 	suite.Suite
-	OrderRepository database.OrderRepository
+	OrderRepository entity.OrderRepositoryInterface
 	Db *sql.DB
 }
 
@@ -25,7 +25,7 @@ func (suite *CalculatePriceUseCaseTestSuite) SetupTest() {
 	suite.NoError(err)
 
 	suite.Db = db
-	suite.OrderRepository = *database.NewOrderRepository(db)
+	suite.OrderRepository = database.NewOrderRepository(db)
 
 }
 

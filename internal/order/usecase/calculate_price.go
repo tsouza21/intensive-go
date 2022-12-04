@@ -2,7 +2,6 @@ package usecase
 
 import (
 	"github.com/tsouza21/intensive-go/internal/order/entity"
-	"github.com/tsouza21/intensive-go/internal/order/infra/database"
 )
 
 type OrderInputDTO struct {
@@ -19,10 +18,10 @@ type OrderOutputDTO struct {
 }
 
 type CalculateFinalPriceUseCase struct {
-	OrderRepository database.OrderRepository
+	OrderRepository entity.OrderRepositoryInterface
 }
 
-func NewCalculateFinalPriceUseCase(orderRepository database.OrderRepository) *CalculateFinalPriceUseCase {
+func NewCalculateFinalPriceUseCase(orderRepository entity.OrderRepositoryInterface) *CalculateFinalPriceUseCase {
 	return &CalculateFinalPriceUseCase{
 		OrderRepository: orderRepository,
 	}
